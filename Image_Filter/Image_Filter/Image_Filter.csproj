@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+
+  
+   <ItemGroup>
+    <EmbeddedResource Include="adventure.jpg" />
+    <EmbeddedResource Include="gold.png" />
+    <EmbeddedResource Include="Lime.png" />
+    <EmbeddedResource Include="majestic.png" />
+    <EmbeddedResource Include="midnight.png" />
+    <EmbeddedResource Include="mint.png" />
+    <EmbeddedResource Include="old.png" />
+    <EmbeddedResource Include="original1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.19" />
+    <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="17.3.0.19" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.19" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:Image_Filter"
+              xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:imageeditor="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms"
+             x:Class="Image_Filter.MainPage">
+
+    <Grid Padding="7,60,10,60" BackgroundColor="White">
+        <Grid.BindingContext>
+            <local:ViewModel />
+        </Grid.BindingContext>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="150" />
+        </Grid.RowDefinitions>
+        <imageeditor:SfImageEditor Source="{Binding Image}" x:Name="image" >
+            <imageeditor:SfImageEditor.ToolbarSettings>
+                <imageeditor:ToolbarSettings IsVisible="False"   />
+            </imageeditor:SfImageEditor.ToolbarSettings>
+        </imageeditor:SfImageEditor>
+        <sync:SfListView x:Name="listView" ItemsSource="{Binding TileInfos}"
+                             Grid.Row="1"  
+                             Padding="3,3,3,0" ItemTapped="listView_ItemTapped"
+                             SelectionMode="Single" 
+                             Orientation="Horizontal"
+                             ItemSpacing="2,10,2,10"
+                             ItemSize="100"
+                             >
+            <sync:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="Transparent"  CornerRadius="2" Padding="2">
+                        <Grid RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding Image}" Aspect="Fill"/>
+                            <Label Grid.Row="1" Text="{Binding ImageName}"
+                             LineBreakMode="WordWrap"
+                             HorizontalTextAlignment="Center"
+                             VerticalTextAlignment="Center" BackgroundColor="White"
+                             TextColor="#222222"
+                              FontSize="13">
+                            </Label>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </sync:SfListView.ItemTemplate>
+        </sync:SfListView>
+
+    </Grid>
+
+</ContentPage>
